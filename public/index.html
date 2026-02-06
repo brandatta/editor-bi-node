@@ -3,24 +3,22 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Corven - Editor de atributos BI</title>
+  <title>Corven - Editor de atributos BI - Prueba de Concepto</title>
   <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
-  <header class="topbar">
-    <div>
-      <h1>Corven - Editor de atributos BI - Prueba de Concepto</h1>
-      <p class="caption">Solo se permiten cambios en columnas que contienen <b>'bi'</b> en su nombre.</p>
-    </div>
-    <div class="actions">
-      <button id="reloadBtn">🔄 Recargar</button>
-      <button id="saveBtn" class="primary">💾 Guardar cambios</button>
-    </div>
-  </header>
+  <main class="page">
+    <h1 class="title">Corven - Editor de atributos BI - Prueba de Concepto</h1>
+    <p class="caption">Solo se permiten cambios en columnas que contienen <b>'bi'</b> en su nombre.</p>
 
-  <main>
-    <div id="status" class="status"></div>
     <div id="tableWrap" class="table-wrap"></div>
+
+    <div class="actions">
+      <button id="saveBtn" class="btn btn-primary">Guardar cambios</button>
+      <button id="reloadBtn" class="btn btn-outline">Recargar</button>
+    </div>
+
+    <div id="status" class="status" aria-live="polite"></div>
   </main>
 
   <script src="/app.js"></script>
