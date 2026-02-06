@@ -1,16 +1,158 @@
-body { font-family: system-ui, Arial, sans-serif; margin: 0; background: #0b1220; color: #e7eefc; }
-.topbar { display:flex; justify-content:space-between; gap:16px; align-items:flex-start; padding:16px; border-bottom:1px solid #1e2a44; background:#0f1a33; position: sticky; top:0; }
-h1 { font-size: 18px; margin: 0 0 4px 0; }
-.caption { margin: 0; opacity: .85; font-size: 13px; }
-.actions { display:flex; gap:10px; }
-button { padding:10px 12px; border:1px solid #2b3a5f; background:#121f3d; color:#e7eefc; border-radius:10px; cursor:pointer; }
-button.primary { border-color:#3a62ff; background:#1a2f6e; }
-button:disabled { opacity:.5; cursor:not-allowed; }
-.status { padding: 12px 16px; font-size: 13px; }
-.table-wrap { padding: 0 16px 16px 16px; overflow:auto; }
-table { border-collapse: collapse; width: 100%; min-width: 900px; background:#0f1a33; border:1px solid #1e2a44; border-radius:12px; overflow:hidden; }
-th, td { border-bottom:1px solid #1e2a44; padding:10px; font-size: 12px; white-space: nowrap; }
-th { position: sticky; top: 74px; background:#0f1a33; z-index:1; text-align:left; }
-td.readonly { opacity:.7; }
-td input { width: 100%; box-sizing: border-box; padding:8px; border-radius:8px; border:1px solid #2b3a5f; background:#0b1220; color:#e7eefc; }
-td input.changed { border-color:#3a62ff; }
+:root {
+  --text: #0f172a;
+  --muted: #64748b;
+  --border: #e5e7eb;
+  --head: #f8fafc;
+  --row-alt: #fcfcfd;
+
+  --primary: #ef4444;         /* rojo similar a tu botón */
+  --primary-hover: #dc2626;
+
+  --outline: #2563eb;         /* azul outline similar a “Recargar” */
+  --outline-bg: #eff6ff;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #ffffff;
+  color: var(--text);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+.page {
+  padding: 28px 42px;
+}
+
+.title {
+  margin: 0 0 8px 0;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+}
+
+.caption {
+  margin: 0 0 14px 0;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.table-wrap {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+}
+
+/* TABLE */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  min-width: 1100px; /* para forzar scroll horizontal como en Streamlit */
+}
+
+thead th {
+  background: var(--head);
+  color: #334155;
+  font-weight: 600;
+  text-align: left;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+tbody td {
+  padding: 7px 10px;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+tbody tr:nth-child(even) td {
+  background: var(--row-alt);
+}
+
+tbody tr:hover td {
+  background: #f1f5f9;
+}
+
+/* readonly cells like streamlit */
+td.readonly {
+  color: #334155;
+}
+
+/* INPUTS in editable BI cells: look flat */
+td input {
+  width: 100%;
+  min-width: 120px;
+  padding: 6px 8px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: #ffffff;
+  color: var(--text);
+  outline: none;
+}
+
+td input:focus {
+  border-color: #93c5fd;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+td input.changed {
+  border-color: #fca5a5;
+  background: #fff7f7;
+}
+
+/* Actions row under the grid (like your screenshot) */
+.actions {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.btn {
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 12px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  user-select: none;
+}
+
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--primary-hover);
+  border-color: var(--primary-hover);
+}
+
+.btn-outline {
+  background: #fff;
+  border-color: #bfdbfe;
+  color: var(--outline);
+}
+
+.btn-outline:hover {
+  background: var(--outline-bg);
+}
+
+/* Status similar a Streamlit: discreto */
+.status {
+  margin-top: 10px;
+  font-size: 12px;
+  color: var(--muted);
+  min-height: 16px;
+}
