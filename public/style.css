@@ -42,8 +42,11 @@ body {
   width: 100%;
   border: 1px solid var(--border);
   border-radius: 8px;
-  overflow: hidden;
+  overflow-x: auto;   /* 👈 scroll horizontal */
+  overflow-y: hidden;
   background: #fff;
+
+  -webkit-overflow-scrolling: touch;
 }
 
 /* TABLE */
