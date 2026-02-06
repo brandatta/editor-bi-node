@@ -8,10 +8,10 @@ const elWrap = document.getElementById("tableWrap");
 const saveBtn = document.getElementById("saveBtn");
 const reloadBtn = document.getElementById("reloadBtn");
 
-function setStatus(msg, kind = "info") {
-  const prefix = kind === "ok" ? "✅ " : kind === "err" ? "❌ " : "ℹ️ ";
-  elStatus.textContent = prefix + msg;
+function setStatus(msg) {
+  elStatus.textContent = msg || "";
 }
+
 
 function deepClone(x) {
   return JSON.parse(JSON.stringify(x));
