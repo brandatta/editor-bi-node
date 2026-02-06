@@ -7,5 +7,5 @@ services:
     env_file:
       - .env
     ports:
-      - "3000:3000"
+      - "3010:3000"   # 👈 HOST:3010 → CONTAINER:3000
     restart: unless-stopped
