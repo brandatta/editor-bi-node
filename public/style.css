@@ -51,10 +51,10 @@ body {
 
 /* TABLE */
 table {
-  width: 100%;
+  width: max-content;     /* 👈 evita que se achique a 100% */
+  min-width: 1100px;      /* 👈 asegura overflow */
   border-collapse: collapse;
   font-size: 12px;
-  min-width: 1100px; /* para forzar scroll horizontal como en Streamlit */
 }
 
 thead th {
@@ -90,7 +90,7 @@ td.readonly {
 /* INPUTS in editable BI cells: look flat */
 td input {
   width: 100%;
-  min-width: 120px;
+  min-width: 140px;
   padding: 6px 8px;
   border: 1px solid transparent;
   border-radius: 6px;
