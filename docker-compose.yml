@@ -1,0 +1,11 @@
+version: "3.9"
+
+services:
+  editor-bi:
+    build: .
+    container_name: editor-bi
+    env_file:
+      - .env
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
